@@ -1,0 +1,32 @@
+{% extends "base.htm" %} {% block content %}
+
+
+<div class="card" style="width: 50rem;">
+        
+	<div class="card-body">
+                <a class="btn btn-primary" href="{% url 'main' %}">Back to Home</a>
+                <br>
+                <br>
+                <br>
+		<form method="post">
+			<div class="card-head"><h2>SALE       -     {{ items.items }}</h2></div>
+			{% csrf_token %}
+			<input type="hidden" name="items" value="{{ item.items }}" />
+			<div class="form-group">
+				<label for="quantity">Quantity</label>
+				<input
+					type="number"
+					class="form-control"
+					value="1"
+					id="quantity"
+					name="quantity"
+					min="1"
+					max="{{ items.quantity }}"
+				/>
+			</div>
+
+			<input type="submit" class="btn btn-primary" value="TRANSFER" />
+		</form>
+	</div>
+</div>
+{% endblock %}

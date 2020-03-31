@@ -1,0 +1,40 @@
+{% extends "base.htm" %}
+
+
+{% block content %}
+        <div class='card flex-fill'>
+            <center><h1>Items -  {{prime.items}}</h1></center>
+        <br>
+        <br>
+        <h3> Price of the Item {{prime.price}} </h3>
+        </div >
+            <div > 
+                {% if prime.saled %}
+
+                <div >
+                {{ post.saled|date:"g:i A, D M Y" }} 
+                </div>
+                {% else %}
+               
+                    <a  href="{% url 'item_saled' pk=prime.pk %}">sale</a>
+                
+                {% endif %}
+                 &nbsp;
+                 <a class="btn btn-info" href="{% url 'selling' pk=prime.pk %}">selling</a>
+                 &nbsp;
+                 <a class="btn btn-primary" href="{% url 'buying' pk=prime.pk %}">buy</a>
+               
+                <br>
+                <br>
+            </div>
+            <br>
+
+                {% comment %} {% if user.is_authenticated and user.is_staff %}
+                    <!-- <a class="btn btn-primary" href=" {%url 'post_edit' pk=post.pk %} " ><span class="glyphicon glyphicon-pencil"></span></a> -->
+                    <a class="button btn btn-danger" href=" {%url 'post_remove' pk=post.pk %}" >Remove</a>
+                {% endif %} {% endcomment %}
+            <br>
+        </div>
+
+            
+{% endblock %}

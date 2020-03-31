@@ -1,0 +1,36 @@
+{% extends "base.htm" %}
+
+
+{% block content %}
+
+
+        
+        <table  id="datatables-clients" class="table table-striped" style="width:100%" align="center">
+            
+        <thead  >
+            <tr >
+                <h1>
+                    <td><h2><strong>Items</strong></h2></td>
+                    <td><h2><strong>Quantity</strong></h2></td>
+                    <td><h2><strong>Price</strong></h2></td>
+                </h1>
+            <tr>
+            
+        </thead>
+    
+    
+        
+        <tbody>
+        {%for post in prime_list %}
+            <tr >
+                <td><h4><a href="{% url 'detail' pk=post.pk %}">{{post.items}}<a></h4></td>
+                <td><strong>{{post.quantity}} Nos</strong></td>
+                <td><strong>{{post.price}} Rs.</strong></td>
+            <tr>
+        {% endfor %}    
+        </tbody>
+            
+        </table>
+    
+        
+{% endblock %}

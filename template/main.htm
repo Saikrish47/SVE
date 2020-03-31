@@ -1,0 +1,50 @@
+{% extends "base.htm" %}
+
+
+{% block content %}
+  <div class = 'card flex-fill'>
+    <br>
+    <br>
+    <br>
+    <center>
+    <h3>Search.</h3>
+        {% if query %}
+              <input class="form-control mr-sm-2" type="search" name='q' placeholder="Search" aria-label="Search">
+
+              <button class="btn btn-outline-primary my-2 my-sm-0" href="{% url 'prime_list' %}">clear</button>
+            
+            <p class='lead'>You searched for {{ query }}</p>
+        {% else %}
+
+
+
+
+          <center>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" >
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                <input  type="search" name='q' placeholder="Search" aria-label="Search" align="center">
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              {% if query.length < 0 %}
+
+              
+                  <p> enter something</p>
+              {% endif %}
+            </form> 
+          </center> 
+        {% endif %}
+    </center>
+    &nbsp;
+            &nbsp;
+            &nbsp;        
+  </div>
+
+{% endblock %}

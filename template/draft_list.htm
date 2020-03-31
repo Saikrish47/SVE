@@ -1,0 +1,21 @@
+{% extends "base.htm" %}
+
+
+{% block content %}
+        {% if post.saled %}
+            {{ post.saled}}
+            
+        {% else %}
+
+            {%for post in prime_list %}
+            <h2>
+                <a href="{% url 'detail' pk=post.pk %}">{{ post.items }}</a>
+
+            </h2>
+
+            <div>
+                <p>created: {{ post.created_date|date:'g:i A, d-m-Y' }}</p>
+            </div>
+        {% endfor %}
+      {% endif %}
+ {% endblock %}

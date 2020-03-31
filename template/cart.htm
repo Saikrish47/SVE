@@ -1,0 +1,52 @@
+{% extends "base.htm" %} {% block content %}
+
+
+<div class="card" style="width: 50rem;">
+        
+	<div class="card-body">
+                <a class="btn btn-primary" href="{% url 'main' %}">Back to Home</a>
+                <br>
+                <br>
+                <br>
+		<form method="post">
+			<div class="card-head"><h2>SALE       -     {{ items.items }}</h2></div>
+			{% csrf_token %}
+			
+			<div class="form-group">
+				<select name="select">
+					<option id ="{{items.id}}" value="{{ items.items }}"> {{ items.items }}</option>
+				</select>
+				<input id ="{{items.id}}" type="number" name="price" value="{{ items.price }}" />
+				<input
+					type="number"
+					class="form-control"
+					value="1"
+					id ="{{items.id}}"
+					name="quantity"
+					min="1"
+					max="{{ items.quantity }}"
+				/>
+				<input id ="{{items.id}}" type="number" name="total" value="{{ items.price }}+{{ items.quantity }}" />
+			</div>
+			<div class="form-group">
+				<select name="select">
+					<option id ="{{items.id}}" value="{{ items.items }}"> {{ items.items }}</option>
+				</select>
+				<input id ="{{items.id}}" type="number" name="price" value="{{ items.price }}" />
+				<input
+					type="number"
+					class="form-control"
+					value="1"
+					id ="{{items.id}}"
+					name="quantity"
+					min="1"
+					max="{{ items.quantity }}"
+				/>
+				<input id ="{{items.id}}" type="number" name="total" value="{{ items.price }}+{{ items.quantity }}" />
+			</div>
+
+			<input type="submit" class="btn btn-primary" value="TRANSFER" />
+		</form>
+	</div>
+</div>
+{% endblock %}
